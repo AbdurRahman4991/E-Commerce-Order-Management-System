@@ -2,6 +2,7 @@
     use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\Api\V1\AuthController;
     use App\Http\Controllers\Api\V1\ProductController;
+    use App\Http\Controllers\Api\V1\OrderController;
 
 
     Route::prefix('v1')->group(function () {
@@ -20,6 +21,14 @@
             Route::post('/', [ProductController::class, 'store']);
             Route::get('{product}', [ProductController::class, 'show']);
         });
+
+        Route::group(['prefix' =>'/orders','middleware'=>['auth:api']],function () {
+            Route::get('/', [OrderController::class, 'index']);
+            Route::post('/', [OrderController::class, 'store']);
+            Route::get('/{order}', [OrderController::class, 'show']);
+            Route::patch('/{order}/status/{status}', [OrderController::class, 'updateStatus']);
+        });
+
 
     });
 
