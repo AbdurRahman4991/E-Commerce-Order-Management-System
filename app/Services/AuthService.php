@@ -20,9 +20,9 @@ class AuthService
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
         $role = match($data['role']) {
-            'admin' => 1,
-            'vendor' => 2,
-             default => 3,
+            'admin' => 5,
+            'vendor' => 6,
+            'customer' =>7,
         };
         $data['role_id'] = $role;
         unset($data['role']);
