@@ -3,6 +3,7 @@
     use App\Http\Controllers\Api\V1\AuthController;
     use App\Http\Controllers\Api\V1\ProductController;
     use App\Http\Controllers\Api\V1\OrderController;
+    use App\Http\Controllers\Api\V1\InvoiceController;
 
 
     Route::prefix('v1')->group(function () {
@@ -27,7 +28,12 @@
             Route::post('/', [OrderController::class, 'store']);
             Route::get('/{order}', [OrderController::class, 'show']);
             Route::patch('/{order}/status/{status}', [OrderController::class, 'updateStatus']);
+            Route::get('/{id}/invoice', [InvoiceController::class, 'download']);
+
+            
         });
+
+        
 
 
     });

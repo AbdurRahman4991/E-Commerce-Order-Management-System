@@ -8,6 +8,7 @@ use App\Http\Requests\OrderRequest;
 use App\Services\OrderService;
 use App\Http\Controllers\Api\v1\Helpers\ApiResponse;
 use App\Models\Order;
+use App\Events\OrderStatusChangedEvent;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class OrderController extends Controller
@@ -41,9 +42,23 @@ class OrderController extends Controller
         return ApiResponse::success($order->load('items.variant'));
     }
 
-    public function updateStatus(Order $order, $status)
+    // public function updateStatus(Order $order, $status)
+    // {
+    //     $order = $this->orderService->updateStatus($order, $status);
+    //     return ApiResponse::success($order);
+    // }
+    public function updateStatus(Order $order, $newStatus)
     {
-        $order = $this->orderService->updateStatus($order, $status);
-        return ApiResponse::success($order);
+        $oldStatus = $order->status;
+
+        $order->update([
+            'status' => $newStatus
+        ]);
+
+        // === Fire Event ===
+        event(new OrderStatusChangedEvent($order, $oldStatus, $newStatus));
+
+        return $order->fresh();
     }
+
 }
