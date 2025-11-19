@@ -31,6 +31,11 @@ class OrderService
                 // Deduct stock
                 $variant->decrement('stock', $item['quantity']);
 
+                // 🔥 LOW STOCK CHECK → trigger event
+                if ($variant->stock <= $variant->low_stock_threshold) {
+                    event(new LowStockDetectedEvent($variant));
+                }
+
                 // Calculate total
                 $itemTotal = $variant->price * $item['quantity'];
                 $total += $itemTotal;

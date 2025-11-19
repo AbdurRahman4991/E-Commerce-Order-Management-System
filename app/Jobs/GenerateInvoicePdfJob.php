@@ -7,6 +7,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use App\Models\Order;
 
 class GenerateInvoicePdfJob implements ShouldQueue
 {
@@ -19,40 +20,46 @@ class GenerateInvoicePdfJob implements ShouldQueue
         $this->orderId = $orderId;
     }
 
+    public function handle()
+    {
+        try {
+           
 
-   public function handle()
-{
-    try {
+            $order = Order::with([
+                'items.variant.product',
+                'user'
+            ])->find($this->orderId);
+           
 
-        $order = \App\Models\Order::with(['items.product', 'items.variant', 'user'])
-            ->findOrFail($this->orderId);
+            // FOLDER CREATE
+            $folderPath = storage_path('app/invoices');
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0777, true);
+            }
 
-        $pdf = Pdf::loadView('pdf.invoice', [
-            'order' => $order,
-        ]);
+            // PDF GENERATE
+            $fileName = 'invoice_' . $order->id . '_' . time() . '.pdf';
+            $savePath = $folderPath . '/' . $fileName;
 
-        $fileName = 'invoice_' . $order->id . '_' . time() . '.pdf';
-        $savePath = storage_path('app/invoices/' . $fileName);
+            $pdf = Pdf::loadView('pdf.invoice', [
+                'order' => $order
+            ]);
 
-        if (!is_dir(storage_path('app/invoices'))) {
-            mkdir(storage_path('app/invoices'), 0777, true);
+            $pdf->save($savePath);
+
+            // DB INSERT
+            Invoice::create([
+                'order_id' => $order->id,
+                'pdf_path' => 'invoices/' . $fileName
+            ]);
+
+        } catch (\Exception $e) {
+
+            \Log::error("========== INVOICE PDF ERROR ==========");
+            \Log::error("Message: " . $e->getMessage());
+            \Log::error("File: " . $e->getFile());
+            \Log::error("Line: " . $e->getLine());
+            \Log::error("Stack: " . $e->getTraceAsString());
         }
-
-        $pdf->save($savePath);
-
-        Invoice::create([
-            'order_id' => $order->id,
-            'pdf_path' => 'invoices/' . $fileName
-        ]);
-
-    } catch (\Exception $e) {
-
-        \Log::error("========== INVOICE PDF ERROR ==========");
-        \Log::error("Message: " . $e->getMessage());
-        \Log::error("File: " . $e->getFile());
-        \Log::error("Line: " . $e->getLine());
-        \Log::error("Stack: " . $e->getTraceAsString());
     }
-}
-
 }

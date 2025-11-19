@@ -9,9 +9,10 @@
     </style>
 </head>
 <body>
+
 <h2>Invoice #{{ $order->id }}</h2>
-<p>Customer: {{ $order->user->name }}</p>
-<p>Date: {{ $order->created_at->format('d M Y') }}</p>
+<p>Customer: {{ $order->user->name ?? 'N/A' }}</p>
+<p>Date: {{ optional($order->created_at)->format('d M Y') }}</p>
 
 <table>
     <thead>
@@ -26,8 +27,8 @@
     <tbody>
         @foreach($order->items as $item)
         <tr>
-            <td>{{ $item->product->name }}</td>
-            <td>{{ $item->variant->variant_name }}</td>
+            <td>{{ $item->variant->product->name ?? 'N/A' }}</td>
+            <td>{{ $item->variant->attribute ?? 'N/A' }}</td>
             <td>{{ $item->quantity }}</td>
             <td>{{ $item->price }}</td>
             <td>{{ $item->quantity * $item->price }}</td>
@@ -36,7 +37,7 @@
     </tbody>
 </table>
 
-<h3>Total: {{ $order->total_amount }} BDT</h3>
+<h3>Total: {{ $order->total }} BDT</h3>
 
 </body>
 </html>

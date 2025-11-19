@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('attribute'); // e.g. "size=XL,color=Blue"
             $table->decimal('price', 10, 2);
             $table->integer('stock')->default(0);
+            $table->integer('low_stock_threshold', 10, 2);
             $table->timestamps();
         });
     }
