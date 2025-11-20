@@ -1,0 +1,2035 @@
+{
+	"info": {
+		"_postman_id": "fe0103f5-2024-45bb-9643-fedd48ffcce4",
+		"name": "E-commerce Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36808589"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "customer1@example.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01317******",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01317******",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "admin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/register",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 11:55:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Registration successful\",\n    \"data\": {\n        \"user\": {\n            \"name\": \"admin\",\n            \"email\": \"admin@example.com\",\n            \"phone\": \"01317******\",\n            \"role_id\": 1,\n            \"updated_at\": \"2025-11-16T11:55:43.000000Z\",\n            \"created_at\": \"2025-11-16T11:55:43.000000Z\",\n            \"id\": 1\n        },\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9yZWdpc3RlciIsImlhdCI6MTc2MzI5NDE0MywiZXhwIjoxNzYzMjk3NzQzLCJuYmYiOjE3NjMyOTQxNDMsImp0aSI6IkgwbnpraEQwanlSUkpMcE0iLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.mGDk_SJPL1NcmxXgxIcVLb5PKfABDMykcPp8tFIFF_U\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/login",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:01:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzI5NDUxMSwiZXhwIjoxNzYzMjk4MTExLCJuYmYiOjE3NjMyOTQ1MTEsImp0aSI6IlBqRmdhZmlUMUV0ajNzMlQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.PWbu9HEYjpA6UcSbGN4IFsghsZE_f-rxNlsq7upXQt4\",\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"admin\",\n            \"email\": \"admin@example.com\",\n            \"phone\": \"01317******\",\n            \"email_verified_at\": null,\n            \"avatar\": null,\n            \"role_id\": \"1\",\n            \"status\": \"active\",\n            \"created_at\": \"2025-11-16T11:55:43.000000Z\",\n            \"updated_at\": \"2025-11-16T11:55:43.000000Z\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzI5NDUxMSwiZXhwIjoxNzYzMjk4MTExLCJuYmYiOjE3NjMyOTQ1MTEsImp0aSI6IlBqRmdhZmlUMUV0ajNzMlQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.PWbu9HEYjpA6UcSbGN4IFsghsZE_f-rxNlsq7upXQt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/profile?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"profile"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Unauthenticated",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/profile?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:05:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "Login user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/profile?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:06:25 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"admin\",\n    \"email\": \"admin@example.com\",\n    \"phone\": \"01317******\",\n    \"email_verified_at\": null,\n    \"avatar\": null,\n    \"role_id\": \"1\",\n    \"status\": \"active\",\n    \"created_at\": \"2025-11-16T11:55:43.000000Z\",\n    \"updated_at\": \"2025-11-16T11:55:43.000000Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzI5NDUxMSwiZXhwIjoxNzYzMjk4MTExLCJuYmYiOjE3NjMyOTQ1MTEsImp0aSI6IlBqRmdhZmlUMUV0ajNzMlQiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.PWbu9HEYjpA6UcSbGN4IFsghsZE_f-rxNlsq7upXQt4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/logout?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/logout?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:08:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logged out\"\n}"
+						}
+					]
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzI5NTAzMSwiZXhwIjoxNzYzMjk4NjMxLCJuYmYiOjE3NjMyOTUwMzEsImp0aSI6ImFJTHVTYTlkVUNWNWVXTkIiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.15GSm96xMAYi9BZ0DLYcN4grsX4FgVNUAAThkSncdgg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/auth/refresh?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "without login user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/refresh?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"refresh"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:10:13 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+						},
+						{
+							"name": "Refresh token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/auth/refresh?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"refresh"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 16 Nov 2025 12:11:32 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9yZWZyZXNoIiwiaWF0IjoxNzYzMjk1MDMxLCJleHAiOjE3NjMyOTg2OTIsIm5iZiI6MTc2MzI5NTA5MiwianRpIjoiT0JXcjh1bng3RkNsV0FCdCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.9AoeFxLdrcu__FBKwCZ_n061deMn0EfLURcv9ClY_Js\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "product list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2F1dGgvbG9naW4iLCJpYXQiOjE3NjM2MzM2NTgsImV4cCI6MTc2MzYzNzI1OCwibmJmIjoxNzYzNjMzNjU4LCJqdGkiOiJFTVhiT2NXOUNVSEtaemZCIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oErv0GDxPhaVrNOMcTB1Y8vLe37uKK12Nv39ICQrSQ4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/products?search=Product A",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Product A"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "product list blunk",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/products?",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Nov 2025 04:28:30 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [],\n        \"first_page_url\": \"http://192.168.20.203:4000/api/v1/products?page=1\",\n        \"from\": null,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://192.168.20.203:4000/api/v1/products?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"page\": null,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://192.168.20.203:4000/api/v1/products?page=1\",\n                \"label\": \"1\",\n                \"page\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"page\": null,\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://192.168.20.203:4000/api/v1/products\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": null,\n        \"total\": 0\n    }\n}"
+						},
+						{
+							"name": "Search result",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "admin@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products?search=Product A",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Product A"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Nov 2025 10:27:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 2,\n                \"vendor_id\": 1,\n                \"name\": \"Product A\",\n                \"slug\": \"product-a\",\n                \"description\": \"god\",\n                \"is_active\": 1,\n                \"created_at\": \"2025-11-20T03:33:45.000000Z\",\n                \"updated_at\": \"2025-11-20T03:33:45.000000Z\",\n                \"variants\": [\n                    {\n                        \"id\": 2,\n                        \"product_id\": 2,\n                        \"sku\": \"PA001\",\n                        \"attribute\": \"L\",\n                        \"price\": \"100.00\",\n                        \"stock\": 50,\n                        \"low_stock_threshold\": 5,\n                        \"created_at\": \"2025-11-20T03:33:45.000000Z\",\n                        \"updated_at\": \"2025-11-20T03:33:45.000000Z\"\n                    }\n                ]\n            }\n        ],\n        \"first_page_url\": \"http://127.0.0.1:8000/api/v1/products?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://127.0.0.1:8000/api/v1/products?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"page\": null,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/products?page=1\",\n                \"label\": \"1\",\n                \"page\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"page\": null,\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://127.0.0.1:8000/api/v1/products\",\n        \"per_page\": 15,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzM1OTY2MywiZXhwIjoxNzYzMzYzMjYzLCJuYmYiOjE3NjMzNTk2NjMsImp0aSI6Ilk2Nm45ZktsZjNlVkhmNEYiLCJzdWIiOiIyIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.SBUoiv7onnDt7umXCIqBnOvjNLVv30TLSEbYquHQORA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"vendor_id\": 2,\r\n  \"name\": \"T-shirt\",\r\n  \"description\": \"best price best product\",\r\n  \"variants\": [\r\n    {\r\n      \"sku\": \"120-RED-L\",\r\n      \"price\": 25.99,\r\n      \"stock\": 10,\r\n      \"attribute\": \"Red, L\"\r\n    },\r\n    {\r\n      \"sku\": \"121-BLU-M\",\r\n      \"price\": 27.50,\r\n      \"stock\": 5,\r\n      \"attribute\": \"Blue, M\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"vendor_id\": 2,\r\n  \"name\": \"T-shirt\",\r\n  \"description\": \"best price best product\",\r\n  \"variants\": [\r\n    {\r\n      \"sku\": \"120-RED-L\",\r\n      \"price\": 25.99,\r\n      \"stock\": 10,\r\n      \"attribute\": \"Red, L\"\r\n    },\r\n    {\r\n      \"sku\": \"121-BLU-M\",\r\n      \"price\": 27.50,\r\n      \"stock\": 5,\r\n      \"attribute\": \"Blue, M\"\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/products",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Nov 2025 06:52:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Created\",\n    \"data\": {\n        \"vendor_id\": 2,\n        \"name\": \"T-shirt\",\n        \"description\": \"best price best product\",\n        \"slug\": \"t-shirt-7637\",\n        \"updated_at\": \"2025-11-17T06:52:08.000000Z\",\n        \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n        \"id\": 1,\n        \"variants\": [\n            {\n                \"id\": 1,\n                \"product_id\": 1,\n                \"sku\": \"120-RED-L\",\n                \"attribute\": \"Red, L\",\n                \"price\": \"25.99\",\n                \"stock\": 10,\n                \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                \"updated_at\": \"2025-11-17T06:52:08.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"product_id\": 1,\n                \"sku\": \"121-BLU-M\",\n                \"attribute\": \"Blue, M\",\n                \"price\": \"27.50\",\n                \"stock\": 5,\n                \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                \"updated_at\": \"2025-11-17T06:52:08.000000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Single product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4yMC4yMDM6NDAwMC9hcGkvdjEvYXV0aC9sb2dpbiIsImlhdCI6MTc2MzM2MzQ1NiwiZXhwIjoxNzYzMzY3MDU2LCJuYmYiOjE3NjMzNjM0NTYsImp0aSI6ImZPcHlPc0ZzOE12WnBUMEMiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.VQylImivm7aCk57WElhR6UtGgxYyXMHpZcT6z6QZif8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/products/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/products/1",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Nov 2025 07:11:20 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 1,\n        \"vendor_id\": 2,\n        \"name\": \"T-shirt\",\n        \"slug\": \"t-shirt-7637\",\n        \"description\": \"best price best product\",\n        \"is_active\": 1,\n        \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n        \"updated_at\": \"2025-11-17T06:52:08.000000Z\",\n        \"variants\": [\n            {\n                \"id\": 1,\n                \"product_id\": 1,\n                \"sku\": \"120-RED-L\",\n                \"attribute\": \"Red, L\",\n                \"price\": \"25.99\",\n                \"stock\": 10,\n                \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                \"updated_at\": \"2025-11-17T06:52:08.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"product_id\": 1,\n                \"sku\": \"121-BLU-M\",\n                \"attribute\": \"Blue, M\",\n                \"price\": \"27.50\",\n                \"stock\": 5,\n                \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                \"updated_at\": \"2025-11-17T06:52:08.000000Z\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Import csv file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNTM3NTU3LCJleHAiOjE3NjM1NDExNTcsIm5iZiI6MTc2MzUzNzU1NywianRpIjoiaEZFNTJoYk5lQk42YkltcCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.a8C9HkWcUK7V2ILpUclse_H4wpLtDiSDjJGUgYrOm4A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/king/Desktop/csv.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/products/import",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"import"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "import csv file",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/king/Desktop/csv.txt"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/import",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"import"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.104:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Nov 2025 08:09:33 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Product import completed\",\n    \"summary\": {\n        \"created\": 0,\n        \"updated\": 0,\n        \"failed_rows\": [\n            {\n                \"row\": 2,\n                \"error\": \"Undefined array key \\\"name\\\"\"\n            },\n            {\n                \"row\": 3,\n                \"error\": \"Undefined array key \\\"name\\\"\"\n            },\n            {\n                \"row\": 4,\n                \"error\": \"Undefined array key \\\"name\\\"\"\n            },\n            {\n                \"row\": 5,\n                \"error\": \"Undefined array key \\\"name\\\"\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "impost success example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/king/Desktop/products.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/products/import",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"products",
+										"import"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Nov 2025 03:33:45 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Product import completed\",\n    \"summary\": {\n        \"created\": 3,\n        \"updated\": 0,\n        \"failed_rows\": []\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Order list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNDc0MjU1LCJleHAiOjE3NjM0Nzc4NTUsIm5iZiI6MTc2MzQ3NDI1NSwianRpIjoiR2NMWWNQckF3UVBCWURrSyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Y5W6UO1Y2fLyQocSqXZMQve_ZDFygqLcIVLkRDKa-0o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Order list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/orders",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.104:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Nov 2025 13:58:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 3,\n            \"status\": \"pending\",\n            \"total\": \"2.00\",\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"items\": [\n                {\n                    \"id\": 1,\n                    \"order_id\": 1,\n                    \"product_variant_id\": 1,\n                    \"quantity\": 1,\n                    \"price\": \"19.99\",\n                    \"created_at\": null,\n                    \"updated_at\": null,\n                    \"variant\": {\n                        \"id\": 1,\n                        \"product_id\": 1,\n                        \"sku\": \"SKU-001\",\n                        \"attribute\": \"Red/ Large\",\n                        \"price\": \"19.99\",\n                        \"stock\": 50,\n                        \"created_at\": null,\n                        \"updated_at\": null\n                    }\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNTM2OTY5LCJleHAiOjE3NjM1NDA1NjksIm5iZiI6MTc2MzUzNjk2OSwianRpIjoid2k0bnBSNjYyUXZ1ME54cyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-aNlCh0IwfdyPFFXnhvgRXkAT3d0VF1ag6QksrWHN7o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 3,\r\n    \"status\": \"pending\",\r\n    \"total\": 79.48,\r\n    \"items\": [\r\n        {\r\n            \"variant_id\": 1,\r\n            \"quantity\": 2,\r\n            \"price\": 25.99\r\n        }\r\n        \r\n    ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"variant_id\": 1,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"variant_id\": 2,\r\n      \"quantity\": 1\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://192.168.20.203:4000/api/v1/orders",
+									"protocol": "http",
+									"host": [
+										"192",
+										"168",
+										"20",
+										"203"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.20.203:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Nov 2025 10:50:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Created\",\n    \"data\": {\n        \"user_id\": 3,\n        \"status\": \"pending\",\n        \"total\": 79.47999999999999,\n        \"updated_at\": \"2025-11-17T10:50:39.000000Z\",\n        \"created_at\": \"2025-11-17T10:50:39.000000Z\",\n        \"id\": 1,\n        \"items\": [\n            {\n                \"id\": 1,\n                \"order_id\": 1,\n                \"product_variant_id\": 1,\n                \"quantity\": 2,\n                \"price\": \"25.99\",\n                \"created_at\": \"2025-11-17T10:50:39.000000Z\",\n                \"updated_at\": \"2025-11-17T10:50:39.000000Z\",\n                \"variant\": {\n                    \"id\": 1,\n                    \"product_id\": 1,\n                    \"sku\": \"120-RED-L\",\n                    \"attribute\": \"Red, L\",\n                    \"price\": \"25.99\",\n                    \"stock\": 8,\n                    \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                    \"updated_at\": \"2025-11-17T10:50:39.000000Z\"\n                }\n            },\n            {\n                \"id\": 2,\n                \"order_id\": 1,\n                \"product_variant_id\": 2,\n                \"quantity\": 1,\n                \"price\": \"27.50\",\n                \"created_at\": \"2025-11-17T10:50:39.000000Z\",\n                \"updated_at\": \"2025-11-17T10:50:39.000000Z\",\n                \"variant\": {\n                    \"id\": 2,\n                    \"product_id\": 1,\n                    \"sku\": \"121-BLU-M\",\n                    \"attribute\": \"Blue, M\",\n                    \"price\": \"27.50\",\n                    \"stock\": 4,\n                    \"created_at\": \"2025-11-17T06:52:08.000000Z\",\n                    \"updated_at\": \"2025-11-17T10:50:39.000000Z\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Single order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNDc0MjU1LCJleHAiOjE3NjM0Nzc4NTUsIm5iZiI6MTc2MzQ3NDI1NSwianRpIjoiR2NMWWNQckF3UVBCWURrSyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.Y5W6UO1Y2fLyQocSqXZMQve_ZDFygqLcIVLkRDKa-0o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/v1/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single order",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}/api/v1/orders",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.104:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Nov 2025 13:58:02 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 3,\n            \"status\": \"pending\",\n            \"total\": \"2.00\",\n            \"created_at\": null,\n            \"updated_at\": null,\n            \"items\": [\n                {\n                    \"id\": 1,\n                    \"order_id\": 1,\n                    \"product_variant_id\": 1,\n                    \"quantity\": 1,\n                    \"price\": \"19.99\",\n                    \"created_at\": null,\n                    \"updated_at\": null,\n                    \"variant\": {\n                        \"id\": 1,\n                        \"product_id\": 1,\n                        \"sku\": \"SKU-001\",\n                        \"attribute\": \"Red/ Large\",\n                        \"price\": \"19.99\",\n                        \"stock\": 50,\n                        \"created_at\": null,\n                        \"updated_at\": null\n                    }\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update order status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNDc4NDU0LCJleHAiOjE3NjM0ODIwNTQsIm5iZiI6MTc2MzQ3ODQ1NCwianRpIjoieGdkdHNGU1JjbFA5WUh6ViIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.lya1hU35cD2w7OUqpriau6wH6v04q-Kb-S0uJz5OuF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/orders/1/status/processing",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"1",
+								"status",
+								"processing"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update status",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/orders/1/status/processing",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"1",
+										"status",
+										"processing"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.104:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Nov 2025 15:08:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Success\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 3,\n        \"status\": \"processing\",\n        \"total\": \"2.00\",\n        \"created_at\": null,\n        \"updated_at\": \"2025-11-18T15:08:01.000000Z\",\n        \"items\": [\n            {\n                \"id\": 1,\n                \"order_id\": 1,\n                \"product_variant_id\": 1,\n                \"quantity\": 1,\n                \"price\": \"19.99\",\n                \"created_at\": null,\n                \"updated_at\": null,\n                \"variant\": {\n                    \"id\": 1,\n                    \"product_id\": 1,\n                    \"sku\": \"SKU-001\",\n                    \"attribute\": \"Red/ Large\",\n                    \"price\": \"19.99\",\n                    \"stock\": 50,\n                    \"created_at\": null,\n                    \"updated_at\": null\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "invoice",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTkyLjE2OC4wLjEwNDo0MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYzNTMwOTc1LCJleHAiOjE3NjM1MzQ1NzUsIm5iZiI6MTc2MzUzMDk3NSwianRpIjoiQVFlYnpUa3hwUDkzZmdUUyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ViWjxiYYrCP9lqPfKelKvas1Ua5IiSgKxoN6m18pOfA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/v1/orders/1/invoice",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"1",
+								"invoice"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "invoice pdf",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseURL}}/api/v1/orders/1/invoice",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										"1",
+										"invoice"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Host",
+									"value": "192.168.0.104:4000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.12"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 19 Nov 2025 05:43:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"message\": \"Invoice PDF file not found on server.\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
