@@ -30,4 +30,24 @@ class ProductController extends Controller
     {
         return ApiResponse::success($product->load('variants'));
     }
+
+    public function importCsv(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:csv,txt'
+        ]);
+
+        $file = $request->file('file')->getRealPath();
+
+        $import = app(\App\Services\ProductImportService::class);
+        $result = $import->import($file);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Product import completed',
+            'summary' => $result
+        ]);
+    }
+
+
 }

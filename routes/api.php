@@ -21,6 +21,7 @@
             Route::get('/', [ProductController::class, 'index']);
             Route::post('/', [ProductController::class, 'store']);
             Route::get('{product}', [ProductController::class, 'show']);
+            Route::post('/import', [ProductController::class, 'importCsv']);
         });
 
         Route::group(['prefix' =>'/orders','middleware'=>['auth:api']],function () {

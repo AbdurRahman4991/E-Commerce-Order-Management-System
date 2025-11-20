@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('vendor_id')->constrained('users');
-            $table->string('name');
+            $table->foreignId('vendor_id')->constrained('users')->index;
+            $table->string('name')->index;
             $table->string('slug')->unique();
             $table->text('description')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->boolean('is_active')->default(true)->index;
             $table->timestamps();
+             $table->index('created_at');
         });
     }
 
